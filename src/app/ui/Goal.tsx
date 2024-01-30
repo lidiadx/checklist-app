@@ -1,6 +1,7 @@
 import { days, renderStatus } from "@/app/lib/properties";
 
-function Goal({ name, checks }) {
+// TODO: use app types
+function Goal({ name, checks }: {name: string, checks: any}) { 
   return (
     <li>
       <div className="goal_container">
