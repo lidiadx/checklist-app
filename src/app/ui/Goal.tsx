@@ -6,7 +6,7 @@ function Goal({ name, checks }: {name: string, checks: any}) {
     <li>
       <div className="goal_container">
         <span className="goal_name">{name}:</span>
-        {checks.map((check, index) => (
+        {checks.map((check: string, index: number) => (
           <span key={index} className={days[index]}>
             {renderStatus(check)}
           </span>
