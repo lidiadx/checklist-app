@@ -4,20 +4,19 @@ import Goal from "@/app/ui/Goal";
 
 export default function Home() {
   return (
-      <main>
-      <div>
-        <h1>Checklist app</h1>
-        By{" "}
-            <Image
-              src="/check.svg"
-              alt="Checklist Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+    <main className="p-10">
+      <div className="flex justify-between pb-8">
+        <h1 className="text-5xl">Checklist</h1>
+        <Image
+          src="/check.svg"
+          alt="Checklist Logo"
+          className="dark:invert"
+          width={54}
+          height={24}
+          priority
+        />
       </div>
-      <ul className="goals">
+      <ul>
         {data.map((item) => (
           <Goal key={item.name} name={item.name} checks={item.checks}></Goal>
         ))}

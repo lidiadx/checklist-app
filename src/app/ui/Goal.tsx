@@ -1,12 +1,16 @@
 import { days, renderStatus } from "@/app/lib/properties";
 
-// TODO: use app types
-function Goal({ name, checks }: {name: string, checks: any}) { 
+export interface Props {
+  name: string;
+  checks: number[];
+}
+
+function Goal({ name, checks }: Props) { 
   return (
     <li>
-      <div className="goal_container">
+      <div className="bg-white px-10 py-4 m-4 rounded-full">
         <span className="goal_name">{name}:</span>
-        {checks.map((check: string, index: number) => (
+        {checks.map((check, index) => (
           <span key={index} className={days[index]}>
             {renderStatus(check)}
           </span>
