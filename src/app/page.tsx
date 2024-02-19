@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { data } from "@/app/lib/data-mock";
 import Goal from "@/app/ui/Goal";
+import AddItem from "@/app/ui/AddItem";
 
 export default function Home() {
   return (
@@ -12,9 +13,12 @@ export default function Home() {
           alt="Checklist Logo"
           className="dark:invert"
           width={54}
-          height={24}
+          height={54}
           priority
         />
+      </div>
+      <div>
+        <AddItem></AddItem>
       </div>
       <ul>
         {data.map((item) => (

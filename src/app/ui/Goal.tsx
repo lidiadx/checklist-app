@@ -8,13 +8,15 @@ export interface Props {
 function Goal({ name, checks }: Props) { 
   return (
     <li>
-      <div className="bg-white px-10 py-4 m-4 rounded-full">
-        <span className="goal_name">{name}:</span>
+      <div className="flex justify-between gap-4 bg-white px-10 py-4 m-4 rounded-full">
+        <div><span className="font-bold">{name}</span></div>
+        <div>
         {checks.map((check, index) => (
           <span key={index} className={days[index]}>
             {renderStatus(check)}
           </span>
         ))}
+        </div>   
       </div>
     </li>
   );
