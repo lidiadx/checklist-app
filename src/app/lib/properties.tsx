@@ -26,6 +26,6 @@ const displayIcon = {
   </svg>
 };
 
-export const renderStatus = (statusKey: string): any => {
+export const renderStatus = (statusKey: keyof typeof displayIcon) => {
   return displayIcon[statusKey];
 };
