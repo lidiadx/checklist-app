@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { data } from "@/app/lib/data-mock";
-import Goal from "@/app/ui/Goal";
 import AddItem from "@/app/ui/AddItem";
+import GoalsList from "./ui/GoalsList";
 
 export default function Home() {
   return (
@@ -20,11 +19,7 @@ export default function Home() {
       <div>
         <AddItem></AddItem>
       </div>
-      <ul>
-        {data.map((item) => (
-          <Goal key={item.name} name={item.name} checks={item.checks}></Goal>
-        ))}
-      </ul>
+      <GoalsList></GoalsList>
     </main>
   );
 }
