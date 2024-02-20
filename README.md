@@ -51,4 +51,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - [Images](https://unsplash.com/)
 
+### Editable Component
+
+[StackOverflow](https://stackoverflow.com/questions/66991797/next-js-how-to-make-only-one-input-field-inline-editable-when-every-tag-checks)
+
+### Vercel + Mongo
+
+[How to Integrate MongoDB Into Your Next.js App](https://www.mongodb.com/developer/languages/javascript/nextjs-with-mongodb/)
 
