@@ -5,10 +5,10 @@
  */
 
 const data = [
-  { name: "morning walk", checks: [0, 1, 1, 1, 2, 0, 0] },
-  { name: "read a book in Spanish", checks: [1, 0, 1, 1, 1, 0, 0]},
-  { name: "evening review", checks: [1, 1, 1, 1, 1, 0, 0] },
-  { name: "go to bed before 11pm", checks: [0, 1, 0, 1, 2, 2, 0]}
+  { name: "morning walk", checks: ['minus', 'plus', 'plus', 'plus', 'skip', 'todo', 'todo'] },
+  { name: "read a book in Spanish", checks: ['plus', 'minus', 'plus', 'plus', 'plus', 'todo', 'todo']},
+  { name: "evening review", checks: ['plus', 'plus', 'plus', 'plus', 'plus', 'todo', 'todo'] },
+  { name: "go to bed before 11pm", checks: ['minus', 'plus', 'minus', 'plus', 'skip', 'todo', 'todo']}
 ];
 
 export { data };
