@@ -1,14 +1,14 @@
 /* Typescript types */
 
 export enum Status {
-  Skip = 'Skip',
-  Miss = 'Miss',
-  Done = 'Done',
+  skip = 'skip',
+  minus = 'minus',
+  plus = 'plus',
+  todo = 'todo'
 }
 
 export type Habit = {
   name: string,
-  date: string,
-  values: Array<Status>    // TODO: how to say "of length 7"
+  checks: Array<Status>    // TODO: how to say "of length 7"
 }
 

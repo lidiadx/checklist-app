@@ -8,7 +8,7 @@ export default async function Goals() {
   console.log(data);
   return (
     <ul>
-        {data.map((item) => (
+        {data.map((item: any) => (   // TODO: Typescript type
           <Goal key={item.name} name={item.name} checks={item.checks}></Goal>
         ))}
       </ul>
