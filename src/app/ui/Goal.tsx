@@ -1,8 +1,9 @@
 import { days, renderStatus } from "@/app/lib/properties";
+import { DayStatus } from "../lib/definitions";
 
 export interface Props {
   name: string;
-  checks: string[]; // TODO: only specific strings allowed
+  checks: Array<DayStatus>;
 }
 
 function Goal({ name, checks }: Props) { 

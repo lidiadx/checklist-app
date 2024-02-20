@@ -12,3 +12,5 @@ export type Habit = {
   checks: Array<Status>    // TODO: how to say "of length 7"
 }
 
+export type DayStatus = 'minus' | 'plus' | 'skip' | 'todo';
+
