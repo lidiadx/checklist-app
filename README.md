@@ -1,17 +1,21 @@
 # Checklist app 
 
-## Checklist app as a Next.js project
+## Deployment
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Vercel: [Checklist](https://checklist-app-phi.vercel.app/)
 
-### Goals
+## Tech Stack
 
-- build a project with Next.js, Tailwindcss and Typescript
-- deploy it on Vercel
-- connect to a db
-- design for mobile and desktop
+- Next.js
+- React
+- TypeScript
+- TailwindCSS
+- Mongodb Atlas
+
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
@@ -31,7 +35,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+### Next.js Docs
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -40,13 +44,14 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Deployment on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-### Check it out:
+### UI
+
 - [Heroicons](https://heroicons.com/)
 
 - [Images](https://unsplash.com/)
