@@ -12,5 +12,21 @@ export type Habit = {
   checks: Array<Status>    // TODO: how to say "of length 7"
 }
 
+
 export type DayStatus = 'minus' | 'plus' | 'skip' | 'todo';
 
+
+// TODO: use the folllowing types for status
+const CHECK_STATUS_MAP = {
+  0: "pending",
+  1: "success",
+  2: "miss",
+  3: "skip",
+} as const;
+
+type CheckStatusMap = typeof CHECK_STATUS_MAP;
+
+// Backend
+type CheckStatus = keyof CheckStatusMap;
+// Frontend
+type DisplayCheckStatus = CheckStatusMap[CheckStatus];
