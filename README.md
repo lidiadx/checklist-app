@@ -56,6 +56,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - [Images](https://unsplash.com/)
 
+### Libs
+
+- [date-fns](https://date-fns.org/)
+
 ### Editable Component
 
 [StackOverflow](https://stackoverflow.com/questions/66991797/next-js-how-to-make-only-one-input-field-inline-editable-when-every-tag-checks)

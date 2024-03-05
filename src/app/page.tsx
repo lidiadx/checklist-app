@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AddItem from "@/app/ui/AddItem";
-import GoalsList from "./ui/GoalsList";
+import GoalsList from "@/app/ui/GoalsList";
+import DateStatus from "@/app/ui/DateStatus";
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
       </div>
       <div>
         <AddItem></AddItem>
+      </div>
+      <div>
+        <DateStatus></DateStatus>
       </div>
       <GoalsList></GoalsList>
     </main>

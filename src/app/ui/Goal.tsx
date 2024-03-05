@@ -1,4 +1,4 @@
-import { days, renderStatus } from "@/app/lib/properties";
+import { renderStatus } from "@/app/lib/properties";
 import { DayStatus } from "../lib/definitions";
 
 export interface Props {
@@ -13,7 +13,7 @@ function Goal({ name, checks }: Props) {
         <div><span className="font-bold">{name}</span></div>
         <div className="flex">
         {checks.map((check, index) => (
-          <span key={index} className={days[index]}>
+          <span key={index}>
           {renderStatus(check)}
         </span>
         ))
