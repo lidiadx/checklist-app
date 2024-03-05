@@ -30,3 +30,15 @@ type CheckStatusMap = typeof CHECK_STATUS_MAP;
 type CheckStatus = keyof CheckStatusMap;
 // Frontend
 type DisplayCheckStatus = CheckStatusMap[CheckStatus];
+
+type HabitEntry = {
+  habitTitle: string;
+  userName: string;
+  year: number;
+  weekNumber: number;
+  checks: Array<CheckStatus>;
+}
+
+type User = {
+  name: string;
+}

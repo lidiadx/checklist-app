@@ -16,6 +16,10 @@ html {
   --foreground-rgb: 0, 0, 0;
   --background-start: #f1e1c1;
   --background-end: #fcbc97;
+  --complimentary-blue: #97DDFC;
+  --complimentary-green: #97FCDA;
+  --complimentary-grey: #57717D;
+  --complimentary-brown: #7D6557;
 }
 
 @media (prefers-color-scheme: dark) {
