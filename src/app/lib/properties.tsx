@@ -1,3 +1,5 @@
+import { Check, CHECK_MAP } from "@/app/lib/definitions";
+
 export const weekDays = [
   "sunday",
   "monday",
@@ -9,7 +11,7 @@ export const weekDays = [
 ];
 
 const displayIcon = {
-  minus: (
+  miss: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="#97DDFC"
@@ -26,7 +28,7 @@ const displayIcon = {
       />
     </svg>
   ),
-  plus: (
+  success: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="#97FCDA"
@@ -60,7 +62,7 @@ const displayIcon = {
       />
     </svg>
   ),
-  todo: (
+  pending: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -83,6 +85,7 @@ const displayIcon = {
   ),
 };
 
-export const renderStatus = (statusKey: keyof typeof displayIcon) => {
-  return displayIcon[statusKey];
+export const renderStatus = (statusKey: Check) => {
+  const displayCheck = CHECK_MAP[statusKey];
+  return displayIcon[displayCheck];
 };

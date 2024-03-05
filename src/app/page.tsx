@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AddItem from "@/app/ui/AddItem";
-import GoalsList from "@/app/ui/GoalsList";
+import GoalList from "@/app/ui/GoalList";
 import DateStatus from "@/app/ui/DateStatus";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
       <div>
         <DateStatus></DateStatus>
       </div>
-      <GoalsList></GoalsList>
+      <GoalList></GoalList>
     </main>
   );
 }

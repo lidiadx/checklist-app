@@ -1,4 +1,5 @@
 import clientPromise from "@/app/lib/mongodb";
+import { TaskEntry } from "@/app/lib/definitions";
 
 const db_name = "checklist-db-demo";
 const collection = "users";
@@ -20,6 +21,28 @@ export async function fetchUserData() {
       console.error(e);
   }
 }
+
+// fetch tasks for current week
+export async function fetchCurrentTasks() {
+    const collection = "tasks";
+    const userName = "testUser";
+    const year = 2024;
+    const weekNumber = 10;
+    try {
+        const client = await clientPromise;
+        const db = client.db(db_name);
+  
+        const d = await db
+          .collection<TaskEntry>(collection)
+          .find({userName: userName, year: year, weekNumber: weekNumber});
+  
+        const results = await d.toArray();
+  
+        return results;
+    } catch (e) {
+        console.error(e);
+    }
+  }
 
 // TODO: test this function
 // updatedUserData: properties that changed

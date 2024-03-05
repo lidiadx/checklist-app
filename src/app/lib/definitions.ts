@@ -1,23 +1,5 @@
 /* Typescript types */
-
-export enum Status {
-  skip = 'skip',
-  minus = 'minus',
-  plus = 'plus',
-  todo = 'todo'
-}
-
-export type Habit = {
-  name: string,
-  checks: Array<Status> 
-}
-
-
-export type DayStatus = 'minus' | 'plus' | 'skip' | 'todo';
-
-
-// TODO: use the folllowing types for status
-const CHECK_MAP = {
+export const CHECK_MAP = {
   0: "pending",
   1: "success",
   2: "miss",
@@ -27,20 +9,25 @@ const CHECK_MAP = {
 type CheckMap = typeof CHECK_MAP;
 
 // Backend
-type Check = keyof CheckMap;
+export type Check = keyof CheckMap;
 // Frontend
-type DisplayCheck = CheckMap[Check];
+export type DisplayCheck = CheckMap[Check];
 
-type CheckWeek = [Check, Check, Check, Check, Check, Check, Check]; // Length = 7
+export type CheckWeek = [Check, Check, Check, Check, Check, Check, Check]; // Length = 7
 
-type DisplayCheckWeek = [DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck]; // Length 7
+export type DisplayCheckWeek = [DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck]; // Length 7
 
-type HabitEntry = {
-  habitTitle: string;
+export type TaskEntry = {
+  taskName: string;
   userName: string;
   year: number;
   weekNumber: number;
   checks: CheckWeek;
+}
+
+export type DisplayEntry = {
+  taskName: string;
+  checks: DisplayCheckWeek;
 }
 
 type User = {
