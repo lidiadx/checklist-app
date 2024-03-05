@@ -13,7 +13,7 @@ const displayIcon = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="#97DDFC"
-      fill-opacity="1"
+      fillOpacity="1"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
@@ -30,7 +30,7 @@ const displayIcon = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="#97FCDA"
-      fill-opacity="1"
+      fillOpacity="1"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
@@ -47,7 +47,7 @@ const displayIcon = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="#57717D"
-      fill-opacity="0.2"
+      fillOpacity="0.2"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
