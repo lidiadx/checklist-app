@@ -9,7 +9,7 @@ export enum Status {
 
 export type Habit = {
   name: string,
-  checks: Array<Status>    // TODO: how to say "of length 7"
+  checks: Array<Status> 
 }
 
 
@@ -17,30 +17,30 @@ export type DayStatus = 'minus' | 'plus' | 'skip' | 'todo';
 
 
 // TODO: use the folllowing types for status
-const CHECK_STATUS_MAP = {
+const CHECK_MAP = {
   0: "pending",
   1: "success",
   2: "miss",
   3: "skip",
 } as const;
 
-type CheckStatusMap = typeof CHECK_STATUS_MAP;
+type CheckMap = typeof CHECK_MAP;
 
 // Backend
-type CheckStatus = keyof CheckStatusMap;
+type Check = keyof CheckMap;
 // Frontend
-type DisplayCheckStatus = CheckStatusMap[CheckStatus];
+type DisplayCheck = CheckMap[Check];
 
-type CheckStatusWeek<CheckStatus> = [CheckStatus, CheckStatus, CheckStatus, CheckStatus, CheckStatus, CheckStatus, CheckStatus]; // Length = 7
+type CheckWeek = [Check, Check, Check, Check, Check, Check, Check]; // Length = 7
 
-type DisplayCheckStatusWeek = [DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus];
+type DisplayCheckWeek = [DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck, DisplayCheck]; // Length 7
 
 type HabitEntry = {
   habitTitle: string;
   userName: string;
   year: number;
   weekNumber: number;
-  checks: CheckStatusWeek;
+  checks: CheckWeek;
 }
 
 type User = {
