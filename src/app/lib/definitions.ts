@@ -31,12 +31,16 @@ type CheckStatus = keyof CheckStatusMap;
 // Frontend
 type DisplayCheckStatus = CheckStatusMap[CheckStatus];
 
+type CheckStatusWeek<CheckStatus> = [CheckStatus, CheckStatus, CheckStatus, CheckStatus, CheckStatus, CheckStatus, CheckStatus]; // Length = 7
+
+type DisplayCheckStatusWeek = [DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus, DisplayCheckStatus];
+
 type HabitEntry = {
   habitTitle: string;
   userName: string;
   year: number;
   weekNumber: number;
-  checks: Array<CheckStatus>;
+  checks: CheckStatusWeek;
 }
 
 type User = {
