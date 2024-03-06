@@ -31,17 +31,18 @@ const displayIcon = {
   success: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="#97FCDA"
-      fillOpacity="1"
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
       stroke="currentColor"
       className="w-6 h-6"
     >
+      <ellipse strokeWidth={1} fill="#97FCDA" cx="12" cy="12" rx="9.5" ry="9.5"/>
       <path
+        strokeWidth={1.5}
+        fill="#97FCDA"
+        fillOpacity={0}
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+        d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
       />
     </svg>
   ),
@@ -89,3 +90,21 @@ export const renderStatus = (statusKey: Check) => {
   const displayCheck = CHECK_MAP[statusKey];
   return displayIcon[displayCheck];
 };
+
+{
+  /* <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#97FCDA"
+      fillOpacity="1"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+      />
+    </svg>), */
+}
