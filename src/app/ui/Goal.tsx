@@ -10,7 +10,7 @@ export default function Goal(props: Props) {
         <div><span className="font-bold">{props.taskName}</span></div>
         <div className="flex">
         {props.checks.map((check, index) => (
-          <span key={index}>
+          <span className="text-[grey]" key={index}>
           {renderStatus(check)}
         </span>
         ))

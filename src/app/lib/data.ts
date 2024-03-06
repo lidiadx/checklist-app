@@ -1,33 +1,14 @@
 import clientPromise from "@/app/lib/mongodb";
-import { TaskEntry } from "@/app/lib/definitions";
+import { TaskEntry, CheckWeek } from "@/app/lib/definitions";
 
 const db_name = "checklist-db-demo";
-const collection = "users";
-
-// TODO: only fetch data for the last month
-export async function fetchUserData() {
-  try {
-      const client = await clientPromise;
-      const db = client.db(db_name);
-
-      const d = await db
-        .collection(collection)
-        .findOne({name: 'testuser'});
-
-      const data = d?.data;
-
-      return data;
-  } catch (e) {
-      console.error(e);
-  }
-}
+const collection = "tasks";
+const userName = "testUser";
 
 // fetch tasks for current week
 export async function fetchCurrentTasks() {
-    const collection = "tasks";
-    const userName = "testUser";
-    const year = 2024;
-    const weekNumber = 10;
+    const year = 2024; // TODO: current year
+    const weekNumber = 10; // TODO: current week
     try {
         const client = await clientPromise;
         const db = client.db(db_name);
@@ -44,6 +25,25 @@ export async function fetchCurrentTasks() {
     }
   }
 
+  // add a new task
+  export async function insertTask(taskName: string) {
+    const year = 2024; // TODO: current year
+    const weekNumber = 10; // TODO: current week 
+    const checks: CheckWeek = [0, 0, 0, 0, 0, 0, 0]; // TODO: init checks
+    try {
+        const client = await clientPromise;
+        const db = client.db(db_name);
+  
+        const result = await db
+          .collection<TaskEntry>(collection)
+          .insertOne({taskName: taskName, userName: userName, year: year, weekNumber: weekNumber, checks: checks});
+  
+        return result; // TODO: ? whats inside
+    } catch (e) {
+        console.error(e);
+    }
+  }
+
 // TODO: test this function
 // updatedUserData: properties that changed
 export async function updateUserData(updatedUserData: any) { 
@@ -52,7 +52,7 @@ export async function updateUserData(updatedUserData: any) {
         const db = client.db(db_name);
         const d = await db
         .collection(collection)
-        .updateOne({name: 'testuser'}, {$set: updatedUserData});
+        .updateOne({name: userName}, {$set: updatedUserData});
 
         console.log(`${d.matchedCount} document(s) matched the query criteria.`);
         console.log(`${d.modifiedCount} document(s) was/were updated.`);
