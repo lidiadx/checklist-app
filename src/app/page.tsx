@@ -1,5 +1,4 @@
 import Image from "next/image";
-import AddItem from "@/app/ui/AddItem";
 import GoalList from "@/app/ui/GoalList";
 import DateStatus from "@/app/ui/DateStatus";
 
@@ -16,9 +15,6 @@ export default function Home() {
           height={54}
           priority
         />
-      </div>
-      <div>
-        <AddItem></AddItem>
       </div>
       <div>
         <DateStatus></DateStatus>
