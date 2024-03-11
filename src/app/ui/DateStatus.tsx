@@ -10,14 +10,14 @@ function DateStatus() {
 
   const weekDay = weekDays[getDay(today)];
   return (
-    <>
+    <div className="mt-4 mb-10">
     <p>
     Current Week: {getWeek(today)}
     </p>
     <p>
       Today is: {format(today, "MM/dd/yyyy")}, {capitalize(weekDay)}
     </p>
-    </>
+    </div>
   )
 };
 
