@@ -8,7 +8,8 @@ import { InsertOneResult } from "mongodb";
 import { TaskEntry } from "./definitions";
 
 const FormSchema = z.object({
-  taskName: z.string(),
+  taskName: z.string({required_error: "Task name is required",
+  invalid_type_error: "Task name must be a string",}).min(1, {message: "Task name should not be empty"}),
 });
 
 export type State = {
@@ -34,7 +35,7 @@ export async function createTask(prevState: State, formData: FormData) {
   }
 
   const { taskName } = validatedFields.data;
-  if (typeof taskName === 'undefined') {
+  if (!taskName) {
     return {
       message: 'Enter some task.'
     };
@@ -48,9 +49,10 @@ export async function createTask(prevState: State, formData: FormData) {
         message: 'Database Error: Failed to Create Task.',
     };
     }
-    return {
-      message: 'Task created successfully.',
-    };
+    // New task created successfully
+    revalidatePath('/');
+    redirect('/');
+
   } catch (error: any) {
     // Handle database errors
     console.error('Database Error:', error.message);

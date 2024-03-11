@@ -10,7 +10,7 @@ export default function Goal(props: Props) {
 
   return (
     <li>
-      <div className="flex justify-between gap-4 bg-white px-10 py-4 m-4 rounded-full">
+      <div className="flex justify-between w-full gap-4 bg-white px-10 py-4 m-4 rounded-full">
         <div>
           <span className="font-bold">{props.taskName}</span>
         </div>
