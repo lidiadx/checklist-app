@@ -4,8 +4,6 @@ import { z } from "zod";
 import { insertTask } from "@/app/lib/data";
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { InsertOneResult } from "mongodb";
-import { TaskEntry } from "./definitions";
 
 const FormSchema = z.object({
   taskName: z.string({required_error: "Task name is required",
@@ -50,7 +48,7 @@ export async function createTask(prevState: State, formData: FormData) {
     };
     }
     // New task created successfully
-    revalidatePath('/');
+    revalidatePath('/');  // TODO: they actually should be outside the try/catch
     redirect('/');
 
   } catch (error: any) {
@@ -60,4 +58,6 @@ export async function createTask(prevState: State, formData: FormData) {
         message: 'Database Error: Failed to Create Task.',
     };
   }
+  //revalidatePath('/');
+  //redirect('/');
 }

@@ -6,6 +6,9 @@ import { createTask } from "@/app/lib/actions";
 
 function AddItem() {
   const [active, setActive] = useState(false);
+  const [formData, setFormData] = useState({
+    taskName: '',
+  });
   const initialState = { message: "", errors: {} };
   const [state, dispatch] = useFormState(createTask, initialState);
 
@@ -13,8 +16,12 @@ function AddItem() {
     setActive(true);
   };
 
-  const handleReset = () => {
+
+  const handleCancel = () => {
     setActive(false);
+    setFormData({
+      taskName: '',
+    });
   };
 
   return (
@@ -55,7 +62,7 @@ function AddItem() {
             Add
           </button>
           <button
-            onClick={handleReset}
+            onClick={handleCancel}
             className="bg-[#57717D]/90 hover:bg-[#57717D]/70 text-white rounded-full px-10 py-2 font-bold text-lg text-center inline-flex items-center"
           >
             Cancel

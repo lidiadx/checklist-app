@@ -17,7 +17,8 @@ export async function fetchCurrentTasks() {
   
         const d = await db
           .collection<TaskEntry>(collection)
-          .find({userName: userName, year: year, weekNumber: weekNumber});
+          .find({userName: userName, year: year, weekNumber: weekNumber})
+          .sort({ _id: -1 });
   
         const results = await d.toArray();
   
