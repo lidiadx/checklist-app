@@ -65,6 +65,7 @@ export default function AddGoal() {
               placeholder="Add a Task"
               onFocus={handleFocus}
               onBlur={handleBlur}
+              required
               className="bg-[#F0842B] peer block w-full rounded-full border border-gray-200 px-12 py-4 m-4 text-sm outline-1 outline-gray-400 placeholder:text-white text-white"
             />
             {typing && (
@@ -84,6 +85,9 @@ export default function AddGoal() {
                 />
               </svg>
             )}
+          </div>
+          <div id="task-error">
+            {state?.message && <p className="mt-2 text-sm text-red-500">{state.message}</p>}
           </div>
         </div>
       </div>
