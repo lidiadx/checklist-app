@@ -48,8 +48,6 @@ export async function createTask(prevState: State, formData: FormData) {
     };
     }
     // New task created successfully
-    revalidatePath('/');  // TODO: they actually should be outside the try/catch
-    redirect('/');
 
   } catch (error: any) {
     // Handle database errors
@@ -58,6 +56,6 @@ export async function createTask(prevState: State, formData: FormData) {
         message: 'Database Error: Failed to Create Task.',
     };
   }
-  //revalidatePath('/');
-  //redirect('/');
+  revalidatePath('/');
+  redirect('/');
 }
