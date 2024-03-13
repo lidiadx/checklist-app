@@ -1,9 +1,10 @@
 "use server";
 
 import { z } from "zod";
-import { insertTask } from "@/app/lib/data";
+import { insertTask, updateCheck } from "@/app/lib/data";
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { TaskEntry, Check } from "@/app/lib/definitions";
 
 const FormSchema = z.object({
   taskName: z.string({required_error: "Task name is required",
@@ -54,6 +55,29 @@ export async function createTask(prevState: State, formData: FormData) {
     console.error('Database Error:', error.message);
     return {
         message: 'Database Error: Failed to Create Task.',
+    };
+  }
+  revalidatePath('/');
+  redirect('/');
+}
+
+// TODO: correct TypeScript
+export async function updateTask(taskName: string, checkValue: Check, day: number){
+   // Insert data into the database
+   try {
+    const d = await updateCheck(taskName, checkValue, day);
+    if (typeof d === 'undefined') {
+      return {
+        message: 'Database Error: Failed to Update Task Status.',
+    };
+    }
+    // New task created successfully
+
+  } catch (error: any) {
+    // Handle database errors
+    console.error('Database Error:', error.message);
+    return {
+        message: 'Database Error: Failed to Update Task Status.',
     };
   }
   revalidatePath('/');

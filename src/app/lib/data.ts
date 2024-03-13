@@ -1,10 +1,11 @@
 import clientPromise from "@/app/lib/mongodb";
-import { TaskEntry, CheckWeek } from "@/app/lib/definitions";
+import { TaskEntry, CheckWeek, Check } from "@/app/lib/definitions";
 import { getWeek, getYear } from "date-fns";
 
 const db_name = "checklist-db-demo";
 const collection = "tasks";
 const userName = "testUser";
+
 
 // fetch tasks for current week
 export async function fetchCurrentTasks() {
@@ -33,7 +34,8 @@ export async function fetchCurrentTasks() {
     const today = new Date();
     const year = getYear(today);
     const weekNumber = getWeek(today); 
-    const checks: CheckWeek = [0, 0, 0, 0, 0, 0, 0]; // TODO: init checks
+    const checks: CheckWeek = [0, 0, 0, 0, 0, 0, 0]; 
+
     try {
         const client = await clientPromise;
         const db = client.db(db_name);
@@ -47,6 +49,26 @@ export async function fetchCurrentTasks() {
         console.error(e);
     }
   }
+
+  // TODO: correct TypeScript
+export async function updateCheck(taskName: string, check: Check, day: number) {
+  const today = new Date();
+  const year = getYear(today);
+  const weekNumber = getWeek(today); 
+
+  try {
+    const client = await clientPromise;
+    const db = client.db(db_name);
+
+    const result = await db
+      .collection<TaskEntry>(collection)
+      .updateOne({taskName: taskName, userName: userName, year: year, weekNumber: weekNumber}, { $set: { [`checks.${day}`]: check } });
+
+    return result; // TODO: ? whats inside
+} catch (e) {
+    console.error(e);
+}
+}
 
 // TODO: test this function
 // updatedUserData: properties that changed

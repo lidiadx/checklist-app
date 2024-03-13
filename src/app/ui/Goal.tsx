@@ -1,12 +1,21 @@
-import { TaskEntry } from "@/app/lib/definitions";
-import { renderStatus } from "@/app/lib/properties";
+'use client';
+
+import { useFormState } from "react-dom";
+import { updateTask } from "@/app/lib/actions";
+import { TaskEntry, Check } from "@/app/lib/definitions";
+import CheckList from "@/app/ui/CheckList";
 
 type Props = Pick<TaskEntry, "taskName" | "checks"> & { key: string };
 
 export default function Goal(props: Props) {
-  const sussessCount = props.checks.filter(check => check === 1).length;
 
-  const goalCount = props.checks.filter(check => check !== 3).length;
+  const initialState = { message: "", errors: {} };
+  //const [state, dispatch] = useFormState(updateTask, initialState);
+
+const handleTaskUpdate = (check: Check) => {
+  console.log('will be updating ' + check);
+  console.log(props.taskName);
+}
 
   return (
     <li>
@@ -14,14 +23,7 @@ export default function Goal(props: Props) {
         <div>
           <span className="font-bold">{props.taskName}</span>
         </div>
-        <div className="flex">
-          {props.checks.map((check, index) => (
-            <span className="text-[grey]" key={index}>
-              {renderStatus(check)}
-            </span>
-          ))}
-          <div className="font-bold ml-[1.5em]">{sussessCount} / {goalCount}</div>
-        </div>
+        <CheckList checks={props.checks} handleClick={handleTaskUpdate}></CheckList>
       </div>
     </li>
   );
